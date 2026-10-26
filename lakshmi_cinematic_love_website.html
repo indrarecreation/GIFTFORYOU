@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100711">
+<meta name="description" content="A little cinematic love story, made by Indrajith Madhu for Lakshmi M.">
+<title>For Lakshmi M. — From Indrajith ❤️</title>
+<style>
+:root{--bg:#100711;--pink:#ff8eae;--rose:#ffc3d4;--gold:#f3d8a4;--white:#fff5f8;--muted:#d2b7c5;--line:#ffffff26}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--white);background:radial-gradient(ellipse at 15% 15%,#55203e 0,transparent 42%),radial-gradient(ellipse at 90% 85%,#2b1a44 0,transparent 42%),linear-gradient(145deg,#100711,#1d0b1b 52%,#08060d);font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+button{font:inherit}
+#sky,#floaters{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#sky{z-index:0}#floaters{z-index:3}
+.star{position:absolute;width:2px;height:2px;background:#fff8fa;border-radius:50%;box-shadow:0 0 8px #fff;animation:twinkle var(--dur,3s) ease-in-out infinite;opacity:.3}
+@keyframes twinkle{50%{opacity:1;transform:scale(1.7)}}
+.aurora{position:fixed;inset:-20%;pointer-events:none;z-index:0;background:conic-gradient(from 120deg at 50% 50%,transparent,#ff4e8a0a,transparent,#b78aff0c,transparent);filter:blur(32px);animation:aurora 18s linear infinite}
+@keyframes aurora{to{transform:rotate(360deg)}}
+.topbar{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px clamp(16px,5vw,50px);font:10px/1.4 Arial,sans-serif;letter-spacing:2.2px;text-transform:uppercase;color:#e6cbd7}
+.brand{display:flex;align-items:center;gap:9px}.brand-mark{color:var(--pink);font-size:18px}.top-actions{display:flex;gap:8px;align-items:center}
+.sound-btn{border:1px solid var(--line);color:var(--white);background:#ffffff0b;border-radius:30px;padding:10px 13px;cursor:pointer;font:10px Arial,sans-serif;letter-spacing:1px}
+main{position:relative;z-index:1;min-height:calc(100svh - 105px);display:grid;place-items:center;padding:20px 14px 42px}
+.scene{width:min(100%,760px);min-height:min(650px,calc(100svh - 145px));position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:clamp(24px,6vw,65px);border:1px solid #fbd5e51f;border-radius:32px;background:linear-gradient(135deg,#ffffff10,#ffffff04 48%,#ff8eae08);box-shadow:0 30px 100px #0007,inset 0 1px #ffffff15;backdrop-filter:blur(16px);overflow:hidden}
+.scene:before,.scene:after{content:"";position:absolute;pointer-events:none;border-radius:50%;filter:blur(2px)}
+.scene:before{width:250px;height:250px;top:-190px;right:-60px;background:#ff75a61b;box-shadow:0 0 100px 40px #ff75a60b}
+.scene:after{width:220px;height:220px;bottom:-190px;left:-70px;background:#c89aff12;box-shadow:0 0 100px 40px #c89aff0a}
+.inner{width:100%;max-width:570px;position:relative;z-index:1;animation:enter .7s cubic-bezier(.2,.8,.2,1) both}
+@keyframes enter{from{opacity:0;transform:translateY(18px) scale(.985);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
+.kicker{font:10px/1.6 Arial,sans-serif;text-transform:uppercase;letter-spacing:3.4px;color:var(--gold);margin-bottom:24px}
+.symbol{font-size:clamp(42px,8vw,70px);line-height:1.2;margin:0 auto 22px;filter:drop-shadow(0 0 24px #ff77a966);animation:heartbeat 2.4s ease-in-out infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}8%{transform:scale(1.08)}17%{transform:scale(1)}25%{transform:scale(1.04)}33%{transform:scale(1)}}
+h1{font-weight:400;font-size:clamp(2.15rem,7.7vw,5rem);letter-spacing:-1.7px;line-height:1.04;margin:0 0 22px}
+h1 em{font-weight:400;color:var(--pink)}
+p{max-width:520px;margin:0 auto 26px;color:#f2dfe7;font-size:clamp(1rem,2.7vw,1.18rem);line-height:1.9}
+.progress-wrap{position:absolute;top:23px;left:24px;right:24px;display:flex;align-items:center;justify-content:center;gap:6px}
+.progress-dot{height:3px;max-width:38px;flex:1;border-radius:10px;background:#ffffff20;transition:background .4s,box-shadow .4s}
+.progress-dot.done{background:linear-gradient(90deg,#f4d6a1,#ff8eae);box-shadow:0 0 12px #ff8eae44}
+.buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:11px;margin-top:10px}
+.btn{min-height:48px;border-radius:40px;padding:14px 23px;cursor:pointer;border:1px solid transparent;font:600 11px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px #0004}
+.btn:focus-visible,.sound-btn:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.btn-main{background:linear-gradient(120deg,#ffe0e9,#ff8eae 60%,#f6c6d8);color:#381224;box-shadow:0 7px 28px #ff75a62a}
+.btn-quiet{color:#ffeaf1;background:#ffffff08;border-color:#ffffff30}
+.note{border:1px solid #ffffff20;background:linear-gradient(135deg,#ffffff0d,#ffffff04);border-radius:20px;padding:21px 23px;margin:0 auto 24px;color:#ffedf3;line-height:1.9;font-size:clamp(1rem,2.7vw,1.12rem);box-shadow:inset 0 1px #ffffff0b}
+.signature{color:var(--rose);font-size:clamp(1.4rem,4vw,2rem);font-style:italic;margin:8px 0 20px}
+.micro{font:9px/1.7 Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;color:#c6a8b8;margin-top:25px}
+.footer{position:relative;z-index:1;text-align:center;padding:0 16px 22px;color:#a98b9d;font:9px Arial,sans-serif;letter-spacing:2px}
+.heart-float{position:absolute;bottom:-35px;animation:rise linear forwards;color:var(--pink);text-shadow:0 0 12px #ff8eae80}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.75}100%{transform:translateY(-115vh) rotate(40deg);opacity:0}}
+.final-seal{width:76px;height:76px;border:1px solid #f3d8a455;border-radius:50%;display:grid;place-items:center;margin:0 auto 22px;color:var(--gold);font-size:28px;box-shadow:0 0 38px #f3d8a411,inset 0 0 25px #f3d8a40b}
+@media(max-width:480px){.topbar{padding:15px 14px;letter-spacing:1.3px}.scene{min-height:calc(100svh - 135px);padding:60px 23px 32px;border-radius:25px}.progress-wrap{top:19px;left:20px;right:20px}.buttons{flex-direction:column;align-items:stretch}.btn{width:100%}.kicker{letter-spacing:2.4px;margin-bottom:19px}.micro{margin-top:20px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="sky" aria-hidden="true"></div><div class="aurora" aria-hidden="true"></div><div id="floaters" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">✦</span><span>A story made for Lakshmi</span></div>
+  <div class="top-actions"><button id="soundBtn" class="sound-btn" type="button" aria-label="Turn romantic music on or off">♫ MUSIC: OFF</button></div>
+</header>
+<main>
+  <section class="scene" aria-live="polite" aria-atomic="true">
+    <div class="progress-wrap" id="progress" aria-label="Story progress"></div>
+    <div class="inner" id="content">
+      <div class="kicker">A private little universe · 26 October 2026</div>
+      <div class="symbol">♥</div>
+      <h1>For you,<br><em>Lakshmi.</em></h1>
+      <p>Tonight, this little corner of the internet is just for you. No big gift. No grand stage. Just a few words from my heart, one click at a time.</p>
+      <div class="buttons"><button class="btn btn-main" type="button" onclick="nextPage()">Step into our story <span aria-hidden="true">→</span></button></div>
+      <div class="micro">Created with love by Indrajith Madhu</div>
+    </div>
+  </section>
+</main>
+<footer class="footer">INDRAJITH MADHU <span style="color:#ff8eae">♥</span> LAKSHMI M. · A LITTLE STORY, JUST FOR YOU</footer>
+<audio id="music" loop preload="none"></audio>
+<script>
+const story = [
+ {tag:"CHAPTER 01 · A LITTLE SECRET",symbol:"✧",title:"Can I tell you<br><em>something?</em>",text:"Sometimes I catch myself smiling for no obvious reason. Then I realise I was thinking about you. Somehow, even a small thought of you can make an ordinary day feel different.",button:"Why you make me smile →"},
+ {tag:"CHAPTER 02 · THE LITTLE THINGS",symbol:"🌷",title:"It's never just<br><em>one thing.</em>",text:"It's your smile, your way of talking, your little expressions, the stories you tell, and all the tiny moments you might not even remember. I notice more than I can explain.",button:"Show me another reason →"},
+ {tag:"CHAPTER 03 · IF YOU COULD SEE",symbol:"☾",title:"See yourself<br><em>through my eyes.</em>",text:"If I could give you one gift, it would be the chance to see yourself the way I see you. I hope you'd notice your warmth, your beauty, your strength, and how much happiness you bring into my life.",button:"There's something I want you to know →"},
+ {tag:"CHAPTER 04 · A PROMISE",symbol:"🤍",title:"Not only on<br><em>perfect days.</em>",text:"I can't promise that every day will be easy. But I want to keep learning how to listen to you, respect you, encourage you, laugh with you, and be honest with you—even when life gets complicated.",button:"Keep going, my love →"},
+ {tag:"CHAPTER 05 · MY FAVOURITE PERSON",symbol:"∞",title:"In a world full<br>of people, <em>you.</em>",text:"There are so many places to go and so many things to do, but some moments become special because of who shares them with you. I hope we keep collecting little memories that make us smile years from now.",button:"One last chapter →"},
+ {tag:"CHAPTER 06 · FROM MY HEART",symbol:"💗",title:"Lakshmi M.,<br><em>this is for you.</em>",text:"Thank you for being you. I hope you never feel that you have to be perfect to be loved or appreciated. You deserve gentleness, laughter, respect, and all the little reasons to smile. And I hope I can add a few more to your days.",button:"Open your final surprise ✨"},
+ {tag:"THE FINAL SURPRISE · ALWAYS WITH LOVE",symbol:"♥",title:"You are a beautiful<br>part of my <em>story.</em>",text:"If this little website made you smile even once, then it did exactly what I hoped it would do. This is just a small reminder: you matter, you are appreciated, and I am grateful that our paths crossed.",final:true}
+];
+let page=-1;
+const content=document.getElementById('content'),progress=document.getElementById('progress');
+function drawProgress(){
+ progress.innerHTML='';
+ story.forEach((_,i)=>{const d=document.createElement('span');d.className='progress-dot'+(i<=page?' done':'');progress.appendChild(d)});
+}
+function render(){
+ const s=story[page];
+ content.innerHTML=`<div class="kicker">${s.tag}</div>${s.final?'<div class="final-seal">♥</div>':`<div class="symbol">${s.symbol}</div>`}<h1>${s.title}</h1><p>${s.text}</p>${s.final?'<div class="signature">With love, always,<br>Indrajith Madhu</div>':''}<div class="buttons">${s.final?'<button class="btn btn-main" type="button" onclick="restartStory()">Read our little story again ↻</button><button class="btn btn-quiet" type="button" onclick="sendHearts()">A sky full of hearts ♥</button>':`<button class="btn btn-main" type="button" onclick="nextPage()">${s.button}</button>`}</div><div class="micro">${s.final?'MADE FOR LAKSHMI M. · WITH LOVE':'CHAPTER '+String(page+1).padStart(2,'0')+' OF '+String(story.length).padStart(2,'0')}</div>`;
+ content.style.animation='none';void content.offsetWidth;content.style.animation='';
+ drawProgress();sendHearts();
+}
+function nextPage(){if(page<story.length-1){page++;render()}else{sendHearts()}}
+function restartStory(){page=-1;drawProgress();content.innerHTML='<div class="kicker">A private little universe · just for you</div><div class="symbol">♥</div><h1>For you,<br><em>Lakshmi.</em></h1><p>Tonight, this little corner of the internet is just for you. No big gift. No grand stage. Just a few words from my heart, one click at a time.</p><div class="buttons"><button class="btn btn-main" type="button" onclick="nextPage()">Step into our story →</button></div><div class="micro">Created with love by Indrajith Madhu</div>';content.style.animation='none';void content.offsetWidth;content.style.animation='';}
+function sendHearts(){const layer=document.getElementById('floaters');for(let i=0;i<12;i++){const h=document.createElement('span');h.className='heart-float';h.textContent=['♥','♡','✦','❤'][Math.floor(Math.random()*4)];h.style.left=Math.random()*100+'%';h.style.fontSize=(13+Math.random()*22)+'px';h.style.animationDuration=(5+Math.random()*5)+'s';layer.appendChild(h);setTimeout(()=>h.remove(),10500)}}
+function makeStars(){const sky=document.getElementById('sky');for(let i=0;i<90;i++){const s=document.createElement('span');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.setProperty('--dur',(2+Math.random()*4)+'s');s.style.animationDelay=(Math.random()*4)+'s';sky.appendChild(s)}}
+makeStars();drawProgress();
+const music=document.getElementById('music'),soundBtn=document.getElementById('soundBtn');
+/* Browser-safe music toggle: no external audio is loaded by default.
+   A gentle original ambient tone is generated locally with Web Audio after the user taps. */
+let audioCtx=null,master=null,oscillators=[],musicOn=false,lfo=null;
+function startMusic(){
+ const AudioContext=window.AudioContext||window.webkitAudioContext;
+ if(!AudioContext){soundBtn.textContent='♫ MUSIC UNAVAILABLE';return}
+ audioCtx=audioCtx||new AudioContext();audioCtx.resume();
+ master=audioCtx.createGain();master.gain.value=.0001;master.connect(audioCtx.destination);
+ const notes=[220,261.63,329.63,392,329.63,261.63];
+ notes.forEach((freq,i)=>{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=freq;g.gain.value=.025/(i<3?1:1.4);o.connect(g);g.connect(master);o.start();oscillators.push(o)});
+ const now=audioCtx.currentTime;master.gain.cancelScheduledValues(now);master.gain.setTargetAtTime(.14,now,.8);
+ musicOn=true;soundBtn.textContent='♫ MUSIC: ON';soundBtn.setAttribute('aria-pressed','true');
+}
+function stopMusic(){
+ if(master&&audioCtx){master.gain.setTargetAtTime(.0001,audioCtx.currentTime,.25)}
+ musicOn=false;soundBtn.textContent='♫ MUSIC: OFF';soundBtn.setAttribute('aria-pressed','false');
+}
+soundBtn.addEventListener('click',()=>{if(musicOn)stopMusic();else startMusic()});
+</script>
+</body>
+</html>
